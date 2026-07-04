@@ -109,32 +109,37 @@
 </head>
 <body class="font-body-md text-body-md overflow-x-hidden bg-[#101f22]">
 
-  <div class="fixed top-0 left-0 w-full h-[52px] z-[70] bg-primary-container py-2 px-margin-mobile md:px-margin-desktop flex justify-center items-center border-b border-white/10">
+  <!-- Barra de simulación superior fija (No cambia) -->
+  <div class="fixed top-0 left-0 w-full h-[52px] z-[100] bg-primary-container py-2 px-margin-mobile md:px-margin-desktop flex justify-center items-center border-b border-white/10">
     <div class="flex bg-white/10 p-1 rounded-full">
       <button id="btn-desktop" class="px-6 py-1.5 rounded-full text-label-lg font-label-lg bg-action-cyan text-primary-container transition-all">Escritorio</button>
       <button id="btn-mobile" class="px-6 py-1.5 rounded-full text-label-lg font-label-lg text-white/70 hover:bg-white/20 hover:text-white transition-all active:scale-95">Móvil</button>
     </div>
   </div>
 
+  <!-- Contenedor global de la página -->
   <div id="page-wrapper" class="w-full min-h-screen mx-auto transition-all duration-300 bg-[#F5F5F1] text-on-background relative pt-[52px]">
     
-    <header class="fixed top-[52px] left-0 w-full z-50 bg-[#F5F5F1]/95 backdrop-blur-md shadow-sm flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop border-b border-border-subtle transition-all duration-300" id="main-header">
-      <div class="flex items-center gap-4 w-full justify-between md:justify-start">
+    <!-- Encabezado corporativo (Corregida la interacción para modo móvil) -->
+    <header id="main-header" class="fixed top-[52px] left-0 w-full z-50 bg-[#F5F5F1]/95 backdrop-blur-md shadow-sm flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop border-b border-border-subtle transition-all duration-300">
+      <div class="flex items-center gap-4 w-full justify-between">
         <button id="mobile-menu-button" class="md:hidden text-primary focus:outline-none">
-          <span class="material-symbols-outlined" data-icon="menu">menu</span>
+          <span class="material-symbols-outlined" style="font-size: 28px;">menu</span>
         </button>
         <div class="flex items-center">
           <img alt="Nexo Tributario Logo" class="h-12 md:h-16 w-auto object-contain" src="NuevoLogoNexo.jpeg">
         </div>
+        <!-- Menú de navegación sin "Noticias" -->
         <nav class="hidden md:flex items-center gap-gutter ml-auto">
-          <a class="font-label-lg text-label-lg text-on-surface-variant nav-link-hover transition-colors" href="#">Inicio</a>
-          <a class="font-label-lg text-label-lg text-on-surface-variant nav-link-hover transition-colors" href="#servicios">Servicios</a>
-          <a class="font-label-lg text-label-lg text-on-surface-variant nav-link-hover transition-colors" href="#nosotros">Nosotros</a>
+          <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-action-cyan transition-colors" href="#">Inicio</a>
+          <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-action-cyan transition-colors" href="#servicios">Servicios</a>
+          <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-action-cyan transition-colors" href="#nosotros">Nosotros</a>
           <a class="font-label-lg text-label-lg px-6 py-2 bg-action-cyan text-primary-container rounded-lg font-bold hover:brightness-110 transition-colors" href="#contacto">Asesoría</a>
         </nav>
       </div>
     </header>
 
+    <!-- Menú Desplegable Móvil -->
     <div id="mobile-menu" class="hidden fixed top-[116px] left-0 w-full bg-[#F5F5F1] z-40 border-b border-border-subtle shadow-lg p-6 flex flex-col gap-4 md:hidden">
       <a class="font-label-lg text-label-lg text-on-surface" href="#">Inicio</a>
       <a class="font-label-lg text-label-lg text-on-surface" href="#servicios">Servicios</a>
@@ -183,16 +188,16 @@
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
             <div class="bg-surface-container-lowest p-8 rounded-xl border border-border-subtle shadow-sm service-card-border">
               <div class="bg-action-cyan rounded-lg flex items-center justify-center mb-6 text-white w-10 h-10">
-                <span class="material-symbols-outlined text-2xl" data-icon="account_balance_wallet">account_balance_wallet</span>
+                <span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
               </div>
               <h3 class="font-headline-md text-headline-md text-primary mb-4">Recuperación de Impuestos</h3>
               <p class="font-body-sm text-on-surface-variant leading-relaxed">
-                Expertos líderes en Devolución de IVA, Impuesto a la Renta, beneficios para Exportadores y convenios de Doble Imposición (CDI). Recuperamos su capital con máxima eficiencia legal.
+                Expertos líderes en Devolución de IVA, Impuesto a la Renta, benefits para Exportadores y convenios de Doble Imposición (CDI). Recuperamos su capital con máxima eficiencia legal.
               </p>
             </div>
             <div class="bg-surface-container-lowest p-8 rounded-xl border border-border-subtle shadow-sm service-card-border">
               <div class="bg-white border border-border-subtle rounded-lg flex items-center justify-center mb-6 text-action-cyan w-10 h-10">
-                <span class="material-symbols-outlined text-2xl" data-icon="fact_check">fact_check</span>
+                <span class="material-symbols-outlined text-2xl">fact_check</span>
               </div>
               <h3 class="font-headline-md text-headline-md text-primary mb-4">Auditoría Externa</h3>
               <p class="font-body-sm text-on-surface-variant leading-relaxed">
@@ -201,7 +206,7 @@
             </div>
             <div class="bg-surface-container-lowest p-8 rounded-xl border border-border-subtle shadow-sm service-card-border">
               <div class="bg-white border border-border-subtle rounded-lg flex items-center justify-center mb-6 text-action-cyan w-10 h-10">
-                <span class="material-symbols-outlined text-2xl" data-icon="gavel">gavel</span>
+                <span class="material-symbols-outlined text-2xl">gavel</span>
               </div>
               <h3 class="font-headline-md text-headline-md text-primary mb-4">Defensa Legal</h3>
               <p class="font-body-sm text-on-surface-variant leading-relaxed">
@@ -210,7 +215,7 @@
             </div>
             <div class="bg-surface-container-lowest p-8 rounded-xl border border-border-subtle shadow-sm service-card-border">
               <div class="bg-white border border-border-subtle rounded-lg flex items-center justify-center mb-6 text-action-cyan w-10 h-10">
-                <span class="material-symbols-outlined text-2xl" data-icon="hub">hub</span>
+                <span class="material-symbols-outlined text-2xl">hub</span>
               </div>
               <h3 class="font-headline-md text-headline-md text-primary mb-4">Outsourcing Contable</h3>
               <p class="font-body-sm text-on-surface-variant leading-relaxed">
@@ -243,6 +248,7 @@
             </div>
             <div class="grid grid-cols-2 gap-8 mt-12 pt-12 border-t border-border-subtle">
               <div>
+                <!-- Mantenido en 25+ como solicitaste -->
                 <div class="text-4xl font-bold text-primary mb-2">25+</div>
                 <div class="text-on-surface-variant font-label-lg uppercase text-xs tracking-widest">Años de confianza</div>
               </div>
@@ -367,7 +373,7 @@
             <div>
               <div class="flex items-center gap-2 mb-6">
                 <div class="w-6 h-6 bg-action-cyan rounded flex items-center justify-center">
-                  <span class="material-symbols-outlined text-white text-xs" data-icon="account_balance">account_balance</span>
+                  <span class="material-symbols-outlined text-white text-xs">account_balance</span>
                 </div>
                 <span class="font-bold text-primary">NEXO TRIBUTARIO</span>
               </div>
@@ -437,7 +443,7 @@
           <div>
             <div class="flex items-center gap-2 mb-6">
               <div class="w-6 h-6 bg-action-cyan rounded flex items-center justify-center">
-                <span class="material-symbols-outlined text-white text-xs" data-icon="account_balance">account_balance</span>
+                <span class="material-symbols-outlined text-white text-xs">account_balance</span>
               </div>
               <span class="font-bold text-xl">Nexo Tributario</span>
             </div>
@@ -484,6 +490,7 @@
 
   </div>
 
+  <!-- SCRIPT MEJORADO PARA CONTROLAR EL COMPORTAMIENTO FIXED -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const btnDesktop = document.getElementById('btn-desktop');
@@ -493,47 +500,57 @@
       const mobileMenuButton = document.getElementById('mobile-menu-button');
       const mobileMenu = document.getElementById('mobile-menu');
 
-      // Funcionalidad para simular el visor de Escritorio y Móvil
+      function actualizarPosicionHeader() {
+        if (pageWrapper.classList.contains('max-w-[375px]')) {
+          // Si estamos en modo móvil simulado, calcular el centro de la pantalla
+          const leftOffset = (window.innerWidth - 375) / 2;
+          mainHeader.style.width = "375px";
+          mainHeader.style.left = `${leftOffset}px`;
+          
+          mobileMenu.style.width = "375px";
+          mobileMenu.style.left = `${leftOffset}px`;
+        } else {
+          // Si estamos en modo escritorio, reiniciar valores por defecto
+          mainHeader.style.width = "100%";
+          mainHeader.style.left = "0";
+          
+          mobileMenu.style.width = "100%";
+          mobileMenu.style.left = "0";
+        }
+      }
+
+      // Acción al dar click en Escritorio
       btnDesktop.addEventListener('click', () => {
-        // Estilos activos del botón
         btnDesktop.className = "px-6 py-1.5 rounded-full text-label-lg font-label-lg bg-action-cyan text-primary-container transition-all";
         btnMobile.className = "px-6 py-1.5 rounded-full text-label-lg font-label-lg text-white/70 hover:bg-white/20 hover:text-white transition-all active:scale-95";
         
-        // Restaurar ancho completo de la página
         pageWrapper.className = "w-full min-h-screen mx-auto transition-all duration-300 bg-[#F5F5F1] text-on-background relative pt-[52px]";
-        mainHeader.style.width = "100%";
-        mainHeader.style.left = "0";
+        
+        actualizarPosicionHeader();
+        mobileMenu.classList.add('hidden');
       });
 
+      // Acción al dar click en Móvil
       btnMobile.addEventListener('click', () => {
-        // Estilos activos del botón
         btnMobile.className = "px-6 py-1.5 rounded-full text-label-lg font-label-lg bg-action-cyan text-primary-container transition-all";
         btnDesktop.className = "px-6 py-1.5 rounded-full text-label-lg font-label-lg text-white/70 hover:bg-white/20 hover:text-white transition-all active:scale-95";
         
-        // Forzar ancho de pantalla móvil (375px) centrado con sombra
+        // Comprimir el contenedor general al tamaño estándar de un celular (375px)
         pageWrapper.className = "max-w-[375px] w-full min-h-screen mx-auto transition-all duration-300 bg-[#F5F5F1] text-on-background relative pt-[52px] shadow-2xl border-x border-white/10";
         
-        // Ajustar el header fijo para que se acople al ancho móvil simulado
-        const rect = pageWrapper.getBoundingClientRect();
-        mainHeader.style.width = "375px";
-        mainHeader.style.left = `${window.innerWidth / 2 - 187.5}px`;
+        actualizarPosicionHeader();
       });
 
-      // Recalcular posición del header si se cambia el tamaño de la ventana en modo móvil
-      window.addEventListener('resize', () => {
-        if (pageWrapper.classList.contains('max-w-[375px]')) {
-          mainHeader.style.left = `${window.innerWidth / 2 - 187.5}px`;
-        } else {
-          mainHeader.style.left = "0";
-        }
-      });
+      // Forzar recálculo si el usuario cambia el tamaño de la ventana del navegador
+      window.addEventListener('resize', actualizarPosicionHeader);
 
-      // Funcionalidad del Menú hamburguesa (Móvil)
-      mobileMenuButton.addEventListener('click', () => {
+      // Desplegar/Ocultar Menú hamburguesa (Móvil)
+      mobileMenuButton.addEventListener('click', (e) => {
+        e.stopPropagation();
         mobileMenu.classList.toggle('hidden');
       });
 
-      // Cerrar menú móvil al hacer clic en un enlace
+      // Ocultar menú si se hace click en algún enlace
       mobileMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           mobileMenu.classList.add('hidden');
