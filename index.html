@@ -106,11 +106,14 @@
       };
     } catch(_e) {}
   </script>
+
+  <!-- Contenedor para inyectar estilos de simulación dinámica -->
+  <style id="simulador-styles"></style>
 </head>
 <body class="font-body-md text-body-md overflow-x-hidden bg-[#101f22]">
 
-  <!-- Barra de simulación superior -->
-  <div class="fixed top-0 left-0 w-full h-[52px] z-[100] bg-primary-container py-2 px-margin-mobile md:px-margin-desktop flex justify-center items-center border-b border-white/10">
+  <!-- Barra de simulación fija superior -->
+  <div class="fixed top-0 left-0 w-full h-[52px] z-[100] bg-primary-container py-2 px-4 flex justify-center items-center border-b border-white/10">
     <div class="flex bg-white/10 p-1 rounded-full">
       <button id="btn-desktop" class="px-6 py-1.5 rounded-full text-label-lg font-label-lg bg-action-cyan text-primary-container transition-all">Escritorio</button>
       <button id="btn-mobile" class="px-6 py-1.5 rounded-full text-label-lg font-label-lg text-white/70 hover:bg-white/20 hover:text-white transition-all active:scale-95">Móvil</button>
@@ -120,21 +123,21 @@
   <!-- Contenedor global de la página -->
   <div id="page-wrapper" class="w-full min-h-screen mx-auto transition-all duration-300 bg-[#F5F5F1] text-on-background relative pt-[52px]">
     
-    <!-- Encabezado corporativo (Removidos los estilos responsivos rígidos de Tailwind) -->
-    <header id="main-header" class="fixed top-[52px] left-0 w-full z-50 bg-[#F5F5F1]/95 backdrop-blur-md shadow-sm flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop border-b border-border-subtle transition-all duration-300">
+    <!-- Encabezado corporativo -->
+    <header id="main-header" class="fixed top-[52px] left-0 w-full z-50 bg-[#F5F5F1]/95 backdrop-blur-md shadow-sm flex justify-between items-center h-16 px-6 border-b border-border-subtle transition-all duration-300">
       <div class="flex items-center gap-4 w-full justify-between">
         
-        <!-- Botón Hamburguesa: Ahora controlado dinámicamente -->
-        <button id="mobile-menu-button" class="hidden text-primary focus:outline-none p-2 hover:bg-black/5 rounded">
+        <!-- Botón Hamburguesa Estándar -->
+        <button id="mobile-menu-button" class="text-primary focus:outline-none p-2 hover:bg-black/5 rounded">
           <span class="material-symbols-outlined" style="font-size: 28px; display: block;">menu</span>
         </button>
         
-        <div class="flex items-center">
+        <div class="flex items-center mx-auto md:mx-0">
           <img alt="Nexo Tributario Logo" class="h-12 md:h-16 w-auto object-contain" src="NuevoLogoNexo.jpeg">
         </div>
 
-        <!-- Menú de escritorio habitual -->
-        <nav id="desktop-nav" class="flex items-center gap-gutter ml-auto">
+        <!-- Menú de Escritorio -->
+        <nav id="desktop-nav" class="hidden md:flex items-center gap-6 ml-auto">
           <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-action-cyan transition-colors" href="#">Inicio</a>
           <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-action-cyan transition-colors" href="#servicios">Servicios</a>
           <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-action-cyan transition-colors" href="#nosotros">Nosotros</a>
@@ -143,7 +146,7 @@
       </div>
     </header>
 
-    <!-- Menú Desplegable Móvil Real -->
+    <!-- Menú Desplegable Móvil -->
     <div id="mobile-menu" class="hidden fixed top-[116px] left-0 w-full bg-[#F5F5F1] z-40 border-b border-border-subtle shadow-lg p-6 flex flex-col gap-4">
       <a class="font-label-lg text-label-lg text-on-surface py-2 border-b border-black/5 hover:text-action-cyan" href="#">Inicio</a>
       <a class="font-label-lg text-label-lg text-on-surface py-2 border-b border-black/5 hover:text-action-cyan" href="#servicios">Servicios</a>
@@ -152,9 +155,9 @@
     </div>
 
     <main class="pt-[64px]">
-      <!-- Bloque Hero -->
-      <section class="relative w-full min-h-[80vh] flex items-center bg-[#F5F5F1] py-16">
-        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Sección Hero -->
+      <section class="relative w-full min-h-[80vh] flex items-center bg-[#F5F5F1] py-16" id="hero-section">
+        <div class="max-w-container-max mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" id="hero-grid">
           <div class="relative z-10">
             <span class="inline-block px-4 py-1 bg-action-cyan/10 text-action-cyan font-label-lg text-label-sm rounded-full mb-6">
               EXCELENCIA EN ASESORÍA TRIBUTARIA Y LEGAL
@@ -174,16 +177,16 @@
               </button>
             </div>
           </div>
-          <div class="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl lg:h-[500px]">
+          <div class="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl" id="hero-img-container">
             <img alt="Sala de reuniones profesional" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80">
           </div>
         </div>
       </section>
 
-      <!-- Servicios -->
+      <!-- Sección Servicios -->
       <section class="py-24 bg-[#F5F5F1] relative z-20 shadow-sm" id="servicios">
-        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-          <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-16 gap-8">
+        <div class="max-w-container-max mx-auto px-6">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-16 gap-8" id="servicios-header">
             <div class="max-w-xl">
               <h2 class="font-display-lg text-display-lg text-primary mb-4">Soluciones Integrales para <span class="text-action-cyan">Desafíos Complejos</span></h2>
             </div>
@@ -191,7 +194,7 @@
               <p class="font-body-md text-on-surface-variant">Cubrimos todo el espectro regulatorio para asegurar el cumplimiento total de su organización ante los entes de control.</p>
             </div>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="servicios-grid">
             <div class="bg-surface-container-lowest p-8 rounded-xl border border-border-subtle shadow-sm">
               <div class="bg-action-cyan rounded-lg flex items-center justify-center mb-6 text-white w-10 h-10">
                 <span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
@@ -232,10 +235,10 @@
         </div>
       </section>
 
-      <!-- Nosotros -->
+      <!-- Sección Nosotros -->
       <section class="py-24 bg-[#F5F5F1]" id="nosotros">
-        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="relative">
+        <div class="max-w-container-max mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center" id="nosotros-grid">
+          <div class="relative" id="nosotros-img-container">
             <img alt="Equipo profesional trabajando" class="w-full object-cover rounded-2xl shadow-xl h-[400px]" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80">
           </div>
           <div>
@@ -262,9 +265,9 @@
 
       <!-- Clientes -->
       <section class="py-24 bg-[#F5F5F1] relative z-30" id="nuestros-clientes">
-        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+        <div class="max-w-container-max mx-auto px-6 text-center">
           <h2 class="font-display-lg text-display-lg text-primary mb-16">Nuestros <span class="text-action-cyan">Clientes</span></h2>
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-12">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-12" id="clientes-grid">
             <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm flex flex-col items-center justify-between">
               <div class="h-24 flex items-center justify-center w-full"><img alt="SISTELESA SA" class="max-h-full max-w-full object-contain" src="sistelesa.jpg"></div>
               <p class="mt-4 font-bold text-sm text-primary">SISTELESA SA</p>
@@ -287,8 +290,8 @@
 
       <!-- Contacto -->
       <section class="py-24 bg-[#F5F5F1]" id="contacto">
-        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+        <div class="max-w-container-max mx-auto px-6">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start" id="contacto-grid">
             <div>
               <h2 class="font-display-lg text-display-lg text-primary mb-8 leading-tight">Construyamos su <span class="text-action-cyan">Legado Fiscal</span></h2>
               <form action="https://formspree.io/f/xvzjvbyg" class="space-y-6" method="POST">
@@ -303,93 +306,95 @@
     </main>
   </div>
 
-  <!-- SCRIPT CON INTERACTIVIDAD DINÁMICA ABSOLUTA -->
+  <!-- CONTROL DE SIMULACIÓN POR FUERZA BRUTA DE INYECCIÓN CSS -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const btnDesktop = document.getElementById('btn-desktop');
       const btnMobile = document.getElementById('btn-mobile');
       const pageWrapper = document.getElementById('page-wrapper');
-      const mainHeader = document.getElementById('main-header');
-      const desktopNav = document.getElementById('desktop-nav');
+      const simuladorStyles = document.getElementById('simulador-styles');
       const mobileMenuButton = document.getElementById('mobile-menu-button');
       const mobileMenu = document.getElementById('mobile-menu');
 
-      // Detecta si físicamente la pantalla del PC es pequeña
-      function esPantallaMovilReal() {
-        return window.innerWidth < 768;
-      }
-
-      function renderizarEstructura() {
-        const modoMovilSimulado = pageWrapper.classList.contains('max-w-[375px]');
-
-        if (modoMovilSimulado || esPantallaMovilReal()) {
-          // ACTIVAR INTERFAZ MÓVIL (Oculta links de PC, muestra Hamburguesa)
-          desktopNav.style.display = 'none';
-          mobileMenuButton.style.display = 'block';
-
-          if (modoMovilSimulado) {
-            // Encuadrar el Header y Menú dentro del teléfono flotante
-            const leftOffset = (window.innerWidth - 375) / 2;
-            mainHeader.style.width = "375px";
-            mainHeader.style.left = `${leftOffset}px`;
-            mobileMenu.style.width = "375px";
-            mobileMenu.style.left = `${leftOffset}px`;
-          } else {
-            // Móvil real a pantalla completa
-            mainHeader.style.width = "100%";
-            mainHeader.style.left = "0";
-            mobileMenu.style.width = "100%";
-            mobileMenu.style.left = "0";
-          }
-        } else {
-          // ACTIVAR INTERFAZ ESCRITORIO
-          desktopNav.style.display = 'flex';
-          mobileMenuButton.style.display = 'none';
-          mobileMenu.classList.add('hidden');
-
-          mainHeader.style.width = "100%";
-          mainHeader.style.left = "0";
-        }
-      }
-
-      // Clic en opción Escritorio
-      btnDesktop.addEventListener('click', () => {
+      function activarModoEscritorio() {
         btnDesktop.className = "px-6 py-1.5 rounded-full text-label-lg font-label-lg bg-action-cyan text-primary-container transition-all";
         btnMobile.className = "px-6 py-1.5 rounded-full text-label-lg font-label-lg text-white/70 hover:bg-white/20 hover:text-white transition-all active:scale-95";
         
         pageWrapper.className = "w-full min-h-screen mx-auto transition-all duration-300 bg-[#F5F5F1] text-on-background relative pt-[52px]";
         
-        renderizarEstructura();
-      });
+        // Limpiar estilos forzados
+        simuladorStyles.innerHTML = `
+          #mobile-menu-button { display: none !important; }
+          #desktop-nav { display: flex !important; }
+        `;
+        mobileMenu.classList.add('hidden');
+      }
 
-      // Clic en opción Móvil
-      btnMobile.addEventListener('click', () => {
+      function activarModoMovil() {
         btnMobile.className = "px-6 py-1.5 rounded-full text-label-lg font-label-lg bg-action-cyan text-primary-container transition-all";
         btnDesktop.className = "px-6 py-1.5 rounded-full text-label-lg font-label-lg text-white/70 hover:bg-white/20 hover:text-white transition-all active:scale-95";
         
         pageWrapper.className = "max-w-[375px] w-full min-h-screen mx-auto transition-all duration-300 bg-[#F5F5F1] text-on-background relative pt-[52px] shadow-2xl border-x border-white/10";
         
-        renderizarEstructura();
-      });
+        // Calcular el offset para centrar el encabezado en la pantalla
+        const leftOffset = (window.innerWidth - 375) / 2;
 
-      // Evento del botón de Hamburguesa (Abrir y Cerrar opciones)
+        // Inyección masiva de CSS para obligar a los elementos a actuar como Móvil
+        simuladorStyles.innerHTML = `
+          #main-header { 
+            width: 375px !important; 
+            left: ${leftOffset}px !important; 
+          }
+          #mobile-menu { 
+            width: 375px !important; 
+            left: ${leftOffset}px !important; 
+          }
+          #mobile-menu-button { 
+            display: block !important; 
+          }
+          #desktop-nav { 
+            display: none !important; 
+          }
+          /* Forzar grillas a comportarse como móvil (1 sola columna) */
+          #hero-grid, #servicios-grid, #nosotros-grid, #clientes-grid, #contacto-grid {
+            grid-template-cols: repeat(1, minmax(0, 1fr)) !important;
+          }
+          #servicios-header {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+          }
+          #hero-img-container {
+            height: 250px !important;
+          }
+        `;
+      }
+
+      // Escuchas de los botones superiores de control
+      btnDesktop.addEventListener('click', activarModoEscritorio);
+      btnMobile.addEventListener('click', activarModoMovil);
+
+      // Evento nativo del botón hamburguesa
       mobileMenuButton.addEventListener('click', (e) => {
         e.stopPropagation();
         mobileMenu.classList.toggle('hidden');
       });
 
-      // Cerrar al dar clic en cualquier link interno
+      // Cerrar al clickear opciones
       mobileMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           mobileMenu.classList.add('hidden');
         });
       });
 
-      // Recalcular si se cambia el tamaño físico del navegador
-      window.addEventListener('resize', renderizarEstructura);
-      
-      // Ejecución inicial
-      renderizarEstructura();
+      // Recalcular posiciones si redimensionas el navegador web
+      window.addEventListener('resize', () => {
+        if (pageWrapper.classList.contains('max-w-[375px]')) {
+          activarModoMovil();
+        }
+      });
+
+      // Inicializar por defecto en vista de escritorio
+      activarModoEscritorio();
     });
   </script>
 </body>
