@@ -109,7 +109,7 @@
 </head>
 <body class="font-body-md text-body-md overflow-x-hidden bg-[#101f22]">
 
-  <!-- Barra de simulación superior fija (No cambia) -->
+  <!-- Barra de simulación superior -->
   <div class="fixed top-0 left-0 w-full h-[52px] z-[100] bg-primary-container py-2 px-margin-mobile md:px-margin-desktop flex justify-center items-center border-b border-white/10">
     <div class="flex bg-white/10 p-1 rounded-full">
       <button id="btn-desktop" class="px-6 py-1.5 rounded-full text-label-lg font-label-lg bg-action-cyan text-primary-container transition-all">Escritorio</button>
@@ -120,17 +120,21 @@
   <!-- Contenedor global de la página -->
   <div id="page-wrapper" class="w-full min-h-screen mx-auto transition-all duration-300 bg-[#F5F5F1] text-on-background relative pt-[52px]">
     
-    <!-- Encabezado corporativo (Corregida la interacción para modo móvil) -->
+    <!-- Encabezado corporativo (Removidos los estilos responsivos rígidos de Tailwind) -->
     <header id="main-header" class="fixed top-[52px] left-0 w-full z-50 bg-[#F5F5F1]/95 backdrop-blur-md shadow-sm flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop border-b border-border-subtle transition-all duration-300">
       <div class="flex items-center gap-4 w-full justify-between">
-        <button id="mobile-menu-button" class="md:hidden text-primary focus:outline-none">
-          <span class="material-symbols-outlined" style="font-size: 28px;">menu</span>
+        
+        <!-- Botón Hamburguesa: Ahora controlado dinámicamente -->
+        <button id="mobile-menu-button" class="hidden text-primary focus:outline-none p-2 hover:bg-black/5 rounded">
+          <span class="material-symbols-outlined" style="font-size: 28px; display: block;">menu</span>
         </button>
+        
         <div class="flex items-center">
           <img alt="Nexo Tributario Logo" class="h-12 md:h-16 w-auto object-contain" src="NuevoLogoNexo.jpeg">
         </div>
-        <!-- Menú de navegación sin "Noticias" -->
-        <nav class="hidden md:flex items-center gap-gutter ml-auto">
+
+        <!-- Menú de escritorio habitual -->
+        <nav id="desktop-nav" class="flex items-center gap-gutter ml-auto">
           <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-action-cyan transition-colors" href="#">Inicio</a>
           <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-action-cyan transition-colors" href="#servicios">Servicios</a>
           <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-action-cyan transition-colors" href="#nosotros">Nosotros</a>
@@ -139,15 +143,16 @@
       </div>
     </header>
 
-    <!-- Menú Desplegable Móvil -->
-    <div id="mobile-menu" class="hidden fixed top-[116px] left-0 w-full bg-[#F5F5F1] z-40 border-b border-border-subtle shadow-lg p-6 flex flex-col gap-4 md:hidden">
-      <a class="font-label-lg text-label-lg text-on-surface" href="#">Inicio</a>
-      <a class="font-label-lg text-label-lg text-on-surface" href="#servicios">Servicios</a>
-      <a class="font-label-lg text-label-lg text-on-surface" href="#nosotros">Nosotros</a>
-      <a class="font-label-lg text-label-lg text-center px-6 py-2 bg-action-cyan text-primary-container rounded-lg font-bold" href="#contacto">Asesoría</a>
+    <!-- Menú Desplegable Móvil Real -->
+    <div id="mobile-menu" class="hidden fixed top-[116px] left-0 w-full bg-[#F5F5F1] z-40 border-b border-border-subtle shadow-lg p-6 flex flex-col gap-4">
+      <a class="font-label-lg text-label-lg text-on-surface py-2 border-b border-black/5 hover:text-action-cyan" href="#">Inicio</a>
+      <a class="font-label-lg text-label-lg text-on-surface py-2 border-b border-black/5 hover:text-action-cyan" href="#servicios">Servicios</a>
+      <a class="font-label-lg text-label-lg text-on-surface py-2 border-b border-black/5 hover:text-action-cyan" href="#nosotros">Nosotros</a>
+      <a class="font-label-lg text-label-lg text-center px-6 py-3 bg-action-cyan text-primary-container rounded-lg font-bold mt-2" href="#contacto">Asesoría</a>
     </div>
 
     <main class="pt-[64px]">
+      <!-- Bloque Hero -->
       <section class="relative w-full min-h-[80vh] flex items-center bg-[#F5F5F1] py-16">
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div class="relative z-10">
@@ -175,6 +180,7 @@
         </div>
       </section>
 
+      <!-- Servicios -->
       <section class="py-24 bg-[#F5F5F1] relative z-20 shadow-sm" id="servicios">
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
           <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-16 gap-8">
@@ -186,16 +192,16 @@
             </div>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
-            <div class="bg-surface-container-lowest p-8 rounded-xl border border-border-subtle shadow-sm service-card-border">
+            <div class="bg-surface-container-lowest p-8 rounded-xl border border-border-subtle shadow-sm">
               <div class="bg-action-cyan rounded-lg flex items-center justify-center mb-6 text-white w-10 h-10">
                 <span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
               </div>
               <h3 class="font-headline-md text-headline-md text-primary mb-4">Recuperación de Impuestos</h3>
               <p class="font-body-sm text-on-surface-variant leading-relaxed">
-                Expertos líderes en Devolución de IVA, Impuesto a la Renta, benefits para Exportadores y convenios de Doble Imposición (CDI). Recuperamos su capital con máxima eficiencia legal.
+                Expertos líderes en Devolución de IVA, Impuesto a la Renta, beneficios para Exportadores y convenios de Doble Imposición (CDI). Recuperamos su capital con máxima eficiencia legal.
               </p>
             </div>
-            <div class="bg-surface-container-lowest p-8 rounded-xl border border-border-subtle shadow-sm service-card-border">
+            <div class="bg-surface-container-lowest p-8 rounded-xl border border-border-subtle shadow-sm">
               <div class="bg-white border border-border-subtle rounded-lg flex items-center justify-center mb-6 text-action-cyan w-10 h-10">
                 <span class="material-symbols-outlined text-2xl">fact_check</span>
               </div>
@@ -204,7 +210,7 @@
                 Examen exhaustivo de estados financieros para brindar transparencia a sus socios y cumplimiento ante los entes de control.
               </p>
             </div>
-            <div class="bg-surface-container-lowest p-8 rounded-xl border border-border-subtle shadow-sm service-card-border">
+            <div class="bg-surface-container-lowest p-8 rounded-xl border border-border-subtle shadow-sm">
               <div class="bg-white border border-border-subtle rounded-lg flex items-center justify-center mb-6 text-action-cyan w-10 h-10">
                 <span class="material-symbols-outlined text-2xl">gavel</span>
               </div>
@@ -213,7 +219,7 @@
                 Patrocinio jurídico especializado para litigios administrativos y constitucionales ante el SRI, IESS y ministerios.
               </p>
             </div>
-            <div class="bg-surface-container-lowest p-8 rounded-xl border border-border-subtle shadow-sm service-card-border">
+            <div class="bg-surface-container-lowest p-8 rounded-xl border border-border-subtle shadow-sm">
               <div class="bg-white border border-border-subtle rounded-lg flex items-center justify-center mb-6 text-action-cyan w-10 h-10">
                 <span class="material-symbols-outlined text-2xl">hub</span>
               </div>
@@ -226,19 +232,13 @@
         </div>
       </section>
 
+      <!-- Nosotros -->
       <section class="py-24 bg-[#F5F5F1]" id="nosotros">
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="order-2 lg:order-1 relative">
+          <div class="relative">
             <img alt="Equipo profesional trabajando" class="w-full object-cover rounded-2xl shadow-xl h-[400px]" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80">
-            <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg border border-border-subtle hidden md:block max-w-[280px]">
-              <div class="flex items-center gap-3 text-success-emerald mb-2 font-bold">
-                <span class="material-symbols-outlined">verified</span>
-                <span>EXCELENCIA CORPORATIVA</span>
-              </div>
-              <p class="text-label-sm text-on-surface-variant">Profesionales con formación de élite al servicio de su empresa.</p>
-            </div>
           </div>
-          <div class="order-1 lg:order-2">
+          <div>
             <span class="text-action-cyan font-label-lg uppercase tracking-wider mb-4 block">NUESTRA ESENCIA</span>
             <h2 class="font-display-lg text-display-lg text-primary mb-8">Evolución y <span class="text-action-cyan italic">Compromiso</span> Inquebrantable</h2>
             <div class="space-y-6 text-body-md text-on-surface-variant">
@@ -248,7 +248,6 @@
             </div>
             <div class="grid grid-cols-2 gap-8 mt-12 pt-12 border-t border-border-subtle">
               <div>
-                <!-- Mantenido en 25+ como solicitaste -->
                 <div class="text-4xl font-bold text-primary mb-2">25+</div>
                 <div class="text-on-surface-variant font-label-lg uppercase text-xs tracking-widest">Años de confianza</div>
               </div>
@@ -261,301 +260,136 @@
         </div>
       </section>
 
-      <section class="relative py-24 overflow-hidden bg-[#F5F5F1]">
-        <div class="absolute inset-0">
-          <img alt="Oficina ejecutiva moderna con vista panorámica a la ciudad" class="w-full h-full object-cover opacity-10 scale-105" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80">
-          <div class="absolute inset-0 bg-gradient-to-b from-[#F5F5F1] via-[#F5F5F1]/80 to-[#F5F5F1]"></div>
-        </div>
-        <div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
-          <h2 class="font-headline-lg text-headline-lg mb-16">Impacto en Cifras</h2>
-          <p class="font-body-lg text-on-surface-variant mb-12 max-w-3xl mx-auto">Especialistas en Procesos de Devolución de Impuestos IVA y Fuente para Emprendedores, PYMES, y Empresas Privadas, garantizando precisión y cumplimiento en cada gestión.</p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mx-auto">
-            <div class="p-12 bg-white rounded-2xl border border-border-subtle shadow-sm hover:shadow-md transition-all group">
-              <div class="font-display-lg text-action-cyan mb-2 group-hover:scale-110 transition-transform">25+</div>
-              <div class="font-headline-md text-primary/70">Años de experiencia</div>
-            </div>
-            <div class="p-10 bg-surface-container-lowest rounded-2xl border border-border-subtle shadow-sm flex flex-col justify-center">
-              <h3 class="font-label-lg text-label-lg text-action-cyan uppercase tracking-widest mb-6">Reportes Institucionales</h3>
-              <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="flex items-center gap-2 p-3 bg-white rounded-lg border border-border-subtle">
-                  <span class="material-symbols-outlined text-action-cyan text-sm">account_balance</span>
-                  <span class="font-bold text-primary text-sm">SRI</span>
-                </div>
-                <div class="flex items-center gap-2 p-3 bg-white rounded-lg border border-border-subtle">
-                  <span class="material-symbols-outlined text-action-cyan text-sm">corporate_fare</span>
-                  <span class="font-bold text-primary text-sm">SUPERCIAS</span>
-                </div>
-                <div class="flex items-center gap-2 p-3 bg-white rounded-lg border border-border-subtle">
-                  <span class="material-symbols-outlined text-action-cyan text-sm">health_and_safety</span>
-                  <span class="font-bold text-primary text-sm">IESS</span>
-                </div>
-                <div class="flex items-center gap-2 p-3 bg-white rounded-lg border border-border-subtle">
-                  <span class="material-symbols-outlined text-action-cyan text-sm">work</span>
-                  <span class="font-bold text-primary text-sm">MDT</span>
-                </div>
-                <div class="flex items-center gap-2 p-3 bg-white rounded-lg border border-border-subtle">
-                  <span class="material-symbols-outlined text-action-cyan text-sm">shield</span>
-                  <span class="font-bold text-primary text-sm">UAFE</span>
-                </div>
-              </div>
-              <p class="mt-6 text-body-sm text-on-surface-variant">Cumplimiento normativo integral ante los principales organismos de control del Ecuador.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <!-- Clientes -->
       <section class="py-24 bg-[#F5F5F1] relative z-30" id="nuestros-clientes">
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
-          <h2 class="font-display-lg text-display-lg text-primary mb-16">
-            Nuestros <span class="text-action-cyan">Clientes</span>
-          </h2>
-
+          <h2 class="font-display-lg text-display-lg text-primary mb-16">Nuestros <span class="text-action-cyan">Clientes</span></h2>
           <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-12">
-            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm flex flex-col items-center justify-between transition-transform hover:scale-105">
-              <div class="h-24 flex items-center justify-center w-full">
-                <img alt="SISTELESA SA" class="max-h-full max-w-full object-contain" src="sistelesa.jpg">
-              </div>
+            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm flex flex-col items-center justify-between">
+              <div class="h-24 flex items-center justify-center w-full"><img alt="SISTELESA SA" class="max-h-full max-w-full object-contain" src="sistelesa.jpg"></div>
               <p class="mt-4 font-bold text-sm text-primary">SISTELESA SA</p>
             </div>
-            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm flex flex-col items-center justify-between transition-transform hover:scale-105">
-              <div class="h-24 flex items-center justify-center w-full">
-                <img alt="ENERGAU SA" class="max-h-full max-w-full object-contain" src="energau.jpg">
-              </div>
+            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm flex flex-col items-center justify-between">
+              <div class="h-24 flex items-center justify-center w-full"><img alt="ENERGAU SA" class="max-h-full max-w-full object-contain" src="energau.jpg"></div>
               <p class="mt-4 font-bold text-sm text-primary">ENERGAU SA</p>
             </div>
-            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm flex flex-col items-center justify-between transition-transform hover:scale-105">
-              <div class="h-24 flex items-center justify-center w-full">
-                <img alt="SACHOF SA Logística" class="max-h-full max-w-full object-contain" src="sachof.jpg">
-              </div>
+            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm flex flex-col items-center justify-between">
+              <div class="h-24 flex items-center justify-center w-full"><img alt="SACHOF SA Logística" class="max-h-full max-w-full object-contain" src="sachof.jpg"></div>
               <p class="mt-4 font-bold text-sm text-primary">SACHOF SA Logística</p>
             </div>
-            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm flex flex-col items-center justify-between transition-transform hover:scale-105">
-              <div class="h-24 flex items-center justify-center w-full">
-                <img alt="Equipos Tecnológicos" class="max-h-full max-w-full object-contain" src="tecnobuy.jpg">
-              </div>
+            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm flex flex-col items-center justify-between">
+              <div class="h-24 flex items-center justify-center w-full"><img alt="Equipos Tecnológicos" class="max-h-full max-w-full object-contain" src="tecnobuy.jpg"></div>
               <p class="mt-4 font-bold text-sm text-primary">Equipos Tecnológicos</p>
             </div>
-            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm flex flex-col items-center justify-between transition-transform hover:scale-105">
-              <div class="h-24 flex items-center justify-center w-full">
-                <img alt="Clínica DENTAL MARK" class="max-h-full max-w-full object-contain" src="dental-mark.jpg">
-              </div>
-              <p class="mt-4 font-bold text-sm text-primary">Clínica DENTAL MARK</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm flex flex-col items-center justify-between transition-transform hover:scale-105">
-              <div class="h-24 flex items-center justify-center w-full">
-                <img alt="Fernando Zambrano Seguridad Industrial" class="max-h-full max-w-full object-contain" src="fernando_zambrano.jpg">
-              </div>
-              <p class="mt-4 font-bold text-sm text-primary text-center">Fernando Zambrano Seguridad Industrial</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm flex flex-col items-center justify-between transition-transform hover:scale-105">
-              <div class="h-24 flex items-center justify-center w-full">
-                <img alt="Vida Dulce" class="max-h-full max-w-full object-contain" src="vida-dulce.jpg">
-              </div>
-              <p class="mt-4 font-bold text-sm text-primary">Vida Dulce</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm flex flex-col items-center justify-between transition-transform hover:scale-105">
-              <div class="h-24 flex items-center justify-center w-full">
-                <img alt="FX Connect" class="max-h-full max-w-full object-contain" src="fxconnet.jpg">
-              </div>
-              <p class="mt-4 font-bold text-sm text-primary">FX Connect</p>
-            </div>
           </div>
-
-          <p class="mt-8 font-body-md text-[#2e3131] max-w-2xl mx-auto italic font-semibold">
-            Tenemos el honor de ser la opción elegida por las siguientes compañías.
-          </p>
         </div>
       </section>
 
+      <!-- Contacto -->
       <section class="py-24 bg-[#F5F5F1]" id="contacto">
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
             <div>
-              <div class="flex items-center gap-2 mb-6">
-                <div class="w-6 h-6 bg-action-cyan rounded flex items-center justify-center">
-                  <span class="material-symbols-outlined text-white text-xs">account_balance</span>
-                </div>
-                <span class="font-bold text-primary">NEXO TRIBUTARIO</span>
-              </div>
               <h2 class="font-display-lg text-display-lg text-primary mb-8 leading-tight">Construyamos su <span class="text-action-cyan">Legado Fiscal</span></h2>
-              <p class="font-body-md text-on-surface-variant mb-12">Atención personalizada y segura. Deja tu mensaje a nuestro WhatsApp para una respuesta inmediata.</p>
-              <div class="space-y-8">
-                <div class="flex gap-6">
-                  <div class="w-12 h-12 bg-action-cyan/10 rounded-full flex items-center justify-center flex-shrink-0 text-action-cyan">
-                    <span class="material-symbols-outlined">location_on</span>
-                  </div>
-                  <div>
-                    <div class="font-bold text-primary mb-1">UBICACIÓN ESTRATÉGICA</div>
-                    <p class="text-on-surface-variant text-sm">Vía a la Costa Km 21, Nexo GYE</p>
-                  </div>
-                </div>
-                <div class="flex gap-6">
-                  <div class="w-12 h-12 bg-action-cyan/10 rounded-full flex items-center justify-center flex-shrink-0 text-action-cyan">
-                    <span class="material-symbols-outlined">chat</span>
-                  </div>
-                  <div>
-                    <div class="font-bold text-primary mb-1">WHATSAPP CORPORATIVO</div>
-                    <p class="text-on-surface-variant text-sm">Click para iniciar chat</p>
-                  </div>
-                </div>
-                <div class="flex gap-6">
-                  <div class="w-12 h-12 bg-action-cyan/10 rounded-full flex items-center justify-center flex-shrink-0 text-action-cyan">
-                    <span class="material-symbols-outlined">link</span>
-                  </div>
-                  <div>
-                    <div class="font-bold text-primary mb-1">ENLACE DIRECTO</div>
-                    <p class="text-on-surface-variant text-sm break-all">https://wsab.me/15Nz2N</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="bg-surface-container-low p-10 rounded-3xl border border-border-subtle">
-              <div class="flex justify-between items-center mb-8">
-                <h3 class="font-headline-md text-primary">Formulario de Enlace</h3>
-                <span class="material-symbols-outlined text-on-surface-variant/20 text-4xl">contact_mail</span>
-              </div>
               <form action="https://formspree.io/f/xvzjvbyg" class="space-y-6" method="POST">
-                <div class="space-y-2">
-                  <label class="text-[11px] font-bold text-on-surface-variant/60 uppercase tracking-widest" for="full-name">Nombre del Interesado</label>
-                  <input class="w-full p-4 rounded-lg border border-outline-variant focus:border-action-cyan focus:ring-1 focus:ring-action-cyan outline-none transition-all bg-white" id="full-name" name="nombre" placeholder="P. ej. Ing. Roberto Sánchez" required="" type="text">
-                </div>
-                <div class="space-y-2">
-                  <label class="text-[11px] font-bold text-on-surface-variant/60 uppercase tracking-widest" for="company">Empresa / RUC</label>
-                  <input class="w-full p-4 rounded-lg border border-outline-variant focus:border-action-cyan focus:ring-1 focus:ring-action-cyan outline-none transition-all bg-white" id="company" name="empresa" placeholder="Nombre de su organización" type="text">
-                </div>
-                <div class="space-y-2">
-                  <label class="text-[11px] font-bold text-on-surface-variant/60 uppercase tracking-widest" for="user-email">Correo Electrónico</label>
-                  <input class="w-full p-4 rounded-lg border border-outline-variant focus:border-action-cyan focus:ring-1 focus:ring-action-cyan outline-none transition-all bg-white" id="user-email" name="email" placeholder="Envíanos tu correo y recibirás una pronta respuesta." required="" type="email">
-                </div>
-                <button class="w-full py-4 bg-success-emerald text-white font-bold rounded-lg hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-3 shadow-lg" type="submit">
-                  Enviar Consulta por Correo <span class="material-symbols-outlined">mail</span>
-                </button>
+                <input class="w-full p-4 rounded-lg border bg-white" name="nombre" placeholder="Nombre completo" required type="text">
+                <input class="w-full p-4 rounded-lg border bg-white" name="email" placeholder="Correo electrónico" required type="email">
+                <button class="w-full py-4 bg-success-emerald text-white font-bold rounded-lg shadow-lg" type="submit">Enviar Consulta</button>
               </form>
             </div>
           </div>
         </div>
       </section>
     </main>
-
-    <footer class="bg-primary-container text-white py-16 border-t border-white/5">
-      <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
-          <div>
-            <div class="flex items-center gap-2 mb-6">
-              <div class="w-6 h-6 bg-action-cyan rounded flex items-center justify-center">
-                <span class="material-symbols-outlined text-white text-xs">account_balance</span>
-              </div>
-              <span class="font-bold text-xl">Nexo Tributario</span>
-            </div>
-            <p class="text-white/60 text-sm leading-relaxed max-w-xs">
-              Brindamos soluciones de alto impacto basadas en la ética, el rigor técnico y la innovación tecnológica para el ecosistema empresarial ecuatoriano.
-            </p>
-          </div>
-          <div>
-            <h4 class="font-bold text-action-cyan uppercase tracking-widest text-xs mb-8">SERVICIOS</h4>
-            <ul class="space-y-4 text-sm text-white/60">
-              <li><a class="hover:text-action-cyan transition-colors" href="#">Tributación Internacional</a></li>
-              <li><a class="hover:text-action-cyan transition-colors" href="#">Auditoría Forense</a></li>
-              <li><a class="hover:text-action-cyan transition-colors" href="#">Consultoría RIMPE</a></li>
-              <li><a class="hover:text-action-cyan transition-colors" href="#">Defensa IESS</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-bold text-action-cyan uppercase tracking-widest text-xs mb-8">CONTACTO</h4>
-            <ul class="space-y-4 text-sm text-white/60">
-              <li class="flex items-start gap-4">
-                <span class="material-symbols-outlined text-action-cyan text-sm">location_on</span>
-                <span>Kilómetro 21 Vía a la Costa, Guayaquil, Ecuador.</span>
-              </li>
-              <li class="flex items-start gap-4">
-                <span class="material-symbols-outlined text-action-cyan text-sm">chat</span>
-                <span>Deja tu mensaje a nuestro WhatsApp</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 gap-4 text-xs font-medium uppercase tracking-widest text-white/40">
-          <p>© 2024 Nexo Tributario - Todos los derechos reservados</p>
-          <div class="flex gap-8">
-            <a class="hover:text-white transition-colors" href="#">Términos</a>
-            <a class="hover:text-white transition-colors" href="#">Protección de Datos</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <a aria-label="Contactar por WhatsApp" class="fixed bottom-8 right-8 z-[80] w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform active:scale-95 overflow-hidden" href="https://wa.me/593995809156" target="_blank">
-      <img alt="WhatsApp" class="w-full h-full object-cover" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-    </a>
-
   </div>
 
-  <!-- SCRIPT MEJORADO PARA CONTROLAR EL COMPORTAMIENTO FIXED -->
+  <!-- SCRIPT CON INTERACTIVIDAD DINÁMICA ABSOLUTA -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const btnDesktop = document.getElementById('btn-desktop');
       const btnMobile = document.getElementById('btn-mobile');
       const pageWrapper = document.getElementById('page-wrapper');
       const mainHeader = document.getElementById('main-header');
+      const desktopNav = document.getElementById('desktop-nav');
       const mobileMenuButton = document.getElementById('mobile-menu-button');
       const mobileMenu = document.getElementById('mobile-menu');
 
-      function actualizarPosicionHeader() {
-        if (pageWrapper.classList.contains('max-w-[375px]')) {
-          // Si estamos en modo móvil simulado, calcular el centro de la pantalla
-          const leftOffset = (window.innerWidth - 375) / 2;
-          mainHeader.style.width = "375px";
-          mainHeader.style.left = `${leftOffset}px`;
-          
-          mobileMenu.style.width = "375px";
-          mobileMenu.style.left = `${leftOffset}px`;
+      // Detecta si físicamente la pantalla del PC es pequeña
+      function esPantallaMovilReal() {
+        return window.innerWidth < 768;
+      }
+
+      function renderizarEstructura() {
+        const modoMovilSimulado = pageWrapper.classList.contains('max-w-[375px]');
+
+        if (modoMovilSimulado || esPantallaMovilReal()) {
+          // ACTIVAR INTERFAZ MÓVIL (Oculta links de PC, muestra Hamburguesa)
+          desktopNav.style.display = 'none';
+          mobileMenuButton.style.display = 'block';
+
+          if (modoMovilSimulado) {
+            // Encuadrar el Header y Menú dentro del teléfono flotante
+            const leftOffset = (window.innerWidth - 375) / 2;
+            mainHeader.style.width = "375px";
+            mainHeader.style.left = `${leftOffset}px`;
+            mobileMenu.style.width = "375px";
+            mobileMenu.style.left = `${leftOffset}px`;
+          } else {
+            // Móvil real a pantalla completa
+            mainHeader.style.width = "100%";
+            mainHeader.style.left = "0";
+            mobileMenu.style.width = "100%";
+            mobileMenu.style.left = "0";
+          }
         } else {
-          // Si estamos en modo escritorio, reiniciar valores por defecto
+          // ACTIVAR INTERFAZ ESCRITORIO
+          desktopNav.style.display = 'flex';
+          mobileMenuButton.style.display = 'none';
+          mobileMenu.classList.add('hidden');
+
           mainHeader.style.width = "100%";
           mainHeader.style.left = "0";
-          
-          mobileMenu.style.width = "100%";
-          mobileMenu.style.left = "0";
         }
       }
 
-      // Acción al dar click en Escritorio
+      // Clic en opción Escritorio
       btnDesktop.addEventListener('click', () => {
         btnDesktop.className = "px-6 py-1.5 rounded-full text-label-lg font-label-lg bg-action-cyan text-primary-container transition-all";
         btnMobile.className = "px-6 py-1.5 rounded-full text-label-lg font-label-lg text-white/70 hover:bg-white/20 hover:text-white transition-all active:scale-95";
         
         pageWrapper.className = "w-full min-h-screen mx-auto transition-all duration-300 bg-[#F5F5F1] text-on-background relative pt-[52px]";
         
-        actualizarPosicionHeader();
-        mobileMenu.classList.add('hidden');
+        renderizarEstructura();
       });
 
-      // Acción al dar click en Móvil
+      // Clic en opción Móvil
       btnMobile.addEventListener('click', () => {
         btnMobile.className = "px-6 py-1.5 rounded-full text-label-lg font-label-lg bg-action-cyan text-primary-container transition-all";
         btnDesktop.className = "px-6 py-1.5 rounded-full text-label-lg font-label-lg text-white/70 hover:bg-white/20 hover:text-white transition-all active:scale-95";
         
-        // Comprimir el contenedor general al tamaño estándar de un celular (375px)
         pageWrapper.className = "max-w-[375px] w-full min-h-screen mx-auto transition-all duration-300 bg-[#F5F5F1] text-on-background relative pt-[52px] shadow-2xl border-x border-white/10";
         
-        actualizarPosicionHeader();
+        renderizarEstructura();
       });
 
-      // Forzar recálculo si el usuario cambia el tamaño de la ventana del navegador
-      window.addEventListener('resize', actualizarPosicionHeader);
-
-      // Desplegar/Ocultar Menú hamburguesa (Móvil)
+      // Evento del botón de Hamburguesa (Abrir y Cerrar opciones)
       mobileMenuButton.addEventListener('click', (e) => {
         e.stopPropagation();
         mobileMenu.classList.toggle('hidden');
       });
 
-      // Ocultar menú si se hace click en algún enlace
+      // Cerrar al dar clic en cualquier link interno
       mobileMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           mobileMenu.classList.add('hidden');
         });
       });
+
+      // Recalcular si se cambia el tamaño físico del navegador
+      window.addEventListener('resize', renderizarEstructura);
+      
+      // Ejecución inicial
+      renderizarEstructura();
     });
   </script>
 </body>
