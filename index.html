@@ -2,7 +2,8 @@
 <html class="light" lang="es">
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+  <title>NEXO Tributario - Asesoría Inteligente</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -13,292 +14,147 @@
         theme: {
           extend: {
             "colors": {
-              "secondary-fixed": "#9cf2e8",
-              "secondary": "#006a63",
-              "tertiary-fixed-dim": "#38d7fc",
-              "surface-tint": "#526164",
               "primary-container": "#101f22",
-              "secondary-fixed-dim": "#80d5cb",
-              "on-surface": "#191c1d",
-              "on-error": "#ffffff",
-              "secondary-container": "#99efe5",
-              "on-secondary": "#ffffff",
-              "surface-container-highest": "#e1e3e3",
               "action-cyan": "#13C8EC",
-              "on-tertiary-container": "#0091ac",
               "on-background": "#191c1d",
-              "surface-paper": "#FFFFFF",
               "background": "#F5F5F1",
-              "on-primary-fixed": "#0f1e21",
               "success-emerald": "#0F766E",
-              "on-secondary-container": "#006f67",
-              "on-primary-container": "#78888b",
               "outline-variant": "#c2c7c9",
               "on-surface-variant": "#424849",
-              "on-tertiary-fixed": "#001f27",
-              "inverse-surface": "#2e3131",
-              "error-container": "#ffdad6",
-              "on-error-container": "#93000a",
-              "inverse-primary": "#b9c9cd",
-              "on-tertiary-fixed-variant": "#004e5e",
-              "primary-fixed-dim": "#b9c9cd",
-              "surface-container-lowest": "#ffffff",
-              "border-subtle": "#E2E8F0",
-              "surface-dim": "#d8dada",
-              "inverse-on-surface": "#eff1f1",
-              "tertiary-fixed": "#b0ecff",
               "primary": "#000304",
-              "surface-variant": "#e1e3e3",
-              "on-primary": "#ffffff",
-              "error": "#ba1a1a",
-              "outline": "#737879",
-              "tertiary": "#000203",
-              "surface-container-high": "#e6e8e8",
-              "on-secondary-fixed": "#00201d",
-              "on-tertiary": "#ffffff",
-              "on-primary-fixed-variant": "#3a494d",
-              "surface-container": "#eceeee",
-              "primary-fixed": "#d5e5e9",
-              "surface-container-low": "#F5F5F1",
-              "tertiary-container": "#002028",
-              "on-secondary-fixed-variant": "#00504a",
-              "surface-bright": "#F5F5F1",
-              "surface": "#F5F5F1"
-            },
-            "borderRadius": {
-              "DEFAULT": "0.125rem",
-              "lg": "0.25rem",
-              "xl": "0.5rem",
-              "full": "0.75rem"
-            },
-            "spacing": {
-              "container-max": "1280px",
-              "margin-mobile": "16px",
-              "margin-tablet": "32px",
-              "margin-desktop": "64px",
-              "gutter": "24px",
-              "base": "8px"
+              "border-subtle": "#E2E8F0",
+              "surface-container-lowest": "#ffffff"
             },
             "fontFamily": {
-              "headline-md": ["Montserrat"],
-              "body-sm": ["Inter"],
-              "headline-lg-mobile": ["Montserrat"],
-              "body-md": ["Inter"],
-              "label-sm": ["Inter"],
-              "label-lg": ["Inter"],
               "headline-lg": ["Montserrat"],
-              "body-lg": ["Inter"],
-              "display-lg": ["Montserrat"]
-            },
-            "fontSize": {
-              "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-              "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
-              "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-              "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-              "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
-              "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
-              "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
-              "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-              "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              "display-lg": ["Montserrat"],
+              "body-md": ["Inter"]
             }
           }
         }
       };
     } catch(_e) {}
   </script>
-
-  <!-- Contenedor para inyectar estilos de simulación dinámica -->
   <style id="simulador-styles"></style>
 </head>
-<body class="font-body-md text-body-md overflow-x-hidden bg-[#101f22]">
+<body class="font-body-md text-on-background bg-[#101f22] antialiased">
 
-  <!-- Barra de simulación fija superior -->
-  <div class="fixed top-0 left-0 w-full h-[52px] z-[100] bg-primary-container py-2 px-4 flex justify-center items-center border-b border-white/10">
+  <div id="barra-simulador" class="hidden md:flex fixed top-0 left-0 w-full h-[52px] z-[100] bg-primary-container py-2 px-4 justify-center items-center border-b border-white/10">
     <div class="flex bg-white/10 p-1 rounded-full">
-      <button id="btn-desktop" class="px-6 py-1.5 rounded-full text-label-lg font-label-lg bg-action-cyan text-primary-container transition-all">Escritorio</button>
-      <button id="btn-mobile" class="px-6 py-1.5 rounded-full text-label-lg font-label-lg text-white/70 hover:bg-white/20 hover:text-white transition-all active:scale-95">Móvil</button>
+      <button id="btn-desktop" class="px-6 py-1.5 rounded-full text-sm font-semibold bg-action-cyan text-primary-container transition-all">Escritorio</button>
+      <button id="btn-mobile" class="px-6 py-1.5 rounded-full text-sm font-semibold text-white/70 hover:bg-white/20 hover:text-white transition-all">Móvil</button>
     </div>
   </div>
 
-  <!-- Contenedor global de la página -->
-  <div id="page-wrapper" class="w-full min-h-screen mx-auto transition-all duration-300 bg-[#F5F5F1] text-on-background relative pt-[52px]">
+  <div id="page-wrapper" class="w-full min-h-screen mx-auto bg-[#F5F5F1] relative pt-0 md:pt-[52px] transition-all duration-300">
     
-    <!-- Encabezado corporativo -->
-    <header id="main-header" class="fixed top-[52px] left-0 w-full z-50 bg-[#F5F5F1]/95 backdrop-blur-md shadow-sm flex justify-between items-center h-16 px-6 border-b border-border-subtle transition-all duration-300">
-      <div class="flex items-center gap-4 w-full justify-between">
+    <header id="main-header" class="fixed top-0 md:top-[52px] left-0 w-full z-50 bg-[#F5F5F1]/95 backdrop-blur-md shadow-sm h-16 px-4 md:px-12 border-b border-border-subtle transition-all duration-300">
+      <div class="flex items-center justify-between h-full w-full max-w-7xl mx-auto">
         
-        <!-- Botón Hamburguesa Estándar -->
-        <button id="mobile-menu-button" class="text-primary focus:outline-none p-2 hover:bg-black/5 rounded">
-          <span class="material-symbols-outlined" style="font-size: 28px; display: block;">menu</span>
+        <button id="mobile-menu-button" class="text-primary focus:outline-none p-2 active:bg-black/10 rounded-lg touch-manipulation">
+          <span class="material-symbols-outlined select-none" style="font-size: 30px; display: block;">menu</span>
         </button>
         
-        <div class="flex items-center mx-auto md:mx-0">
-          <img alt="Nexo Tributario Logo" class="h-12 md:h-16 w-auto object-contain" src="NuevoLogoNexo.jpeg">
+        <div class="flex items-center">
+          <img alt="Nexo Tributario Logo" class="h-10 md:h-14 w-auto object-contain" src="NuevoLogoNexo.jpeg">
         </div>
 
-        <!-- Menú de Escritorio -->
-        <nav id="desktop-nav" class="hidden md:flex items-center gap-6 ml-auto">
-          <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-action-cyan transition-colors" href="#">Inicio</a>
-          <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-action-cyan transition-colors" href="#servicios">Servicios</a>
-          <a class="font-label-lg text-label-lg text-on-surface-variant hover:text-action-cyan transition-colors" href="#nosotros">Nosotros</a>
-          <a class="font-label-lg text-label-lg px-6 py-2 bg-action-cyan text-primary-container rounded-lg font-bold hover:brightness-110 transition-colors" href="#contacto">Asesoría</a>
+        <nav id="desktop-nav" class="hidden md:flex items-center gap-8">
+          <a class="text-sm font-semibold text-on-surface-variant hover:text-action-cyan transition-colors" href="#">Inicio</a>
+          <a class="text-sm font-semibold text-on-surface-variant hover:text-action-cyan transition-colors" href="#servicios">Servicios</a>
+          <a class="text-sm font-semibold text-on-surface-variant hover:text-action-cyan transition-colors" href="#nosotros">Nosotros</a>
+          <a class="text-sm font-semibold px-6 py-2 bg-action-cyan text-primary-container rounded-lg font-bold hover:brightness-110 transition-colors" href="#contacto">Asesoría</a>
         </nav>
+        
+        <div class="w-10 md:hidden"></div>
       </div>
     </header>
 
-    <!-- Menú Desplegable Móvil -->
-    <div id="mobile-menu" class="hidden fixed top-[116px] left-0 w-full bg-[#F5F5F1] z-40 border-b border-border-subtle shadow-lg p-6 flex flex-col gap-4">
-      <a class="font-label-lg text-label-lg text-on-surface py-2 border-b border-black/5 hover:text-action-cyan" href="#">Inicio</a>
-      <a class="font-label-lg text-label-lg text-on-surface py-2 border-b border-black/5 hover:text-action-cyan" href="#servicios">Servicios</a>
-      <a class="font-label-lg text-label-lg text-on-surface py-2 border-b border-black/5 hover:text-action-cyan" href="#nosotros">Nosotros</a>
-      <a class="font-label-lg text-label-lg text-center px-6 py-3 bg-action-cyan text-primary-container rounded-lg font-bold mt-2" href="#contacto">Asesoría</a>
+    <div id="mobile-menu" class="hidden fixed top-16 md:top-[116px] left-0 w-full bg-[#F5F5F1] z-40 border-b border-border-subtle shadow-xl p-6 flex flex-col gap-4 transition-all animate-fadeIn">
+      <a class="text-base font-semibold text-on-background py-3 border-b border-black/5 active:text-action-cyan" href="#">Inicio</a>
+      <a class="text-base font-semibold text-on-background py-3 border-b border-black/5 active:text-action-cyan" href="#servicios">Servicios</a>
+      <a class="text-base font-semibold text-on-background py-3 border-b border-black/5 active:text-action-cyan" href="#nosotros">Nosotros</a>
+      <a class="text-base font-bold text-center px-6 py-3 bg-action-cyan text-primary-container rounded-lg mt-2 shadow" href="#contacto">Asesoría</a>
     </div>
 
-    <main class="pt-[64px]">
-      <!-- Sección Hero -->
-      <section class="relative w-full min-h-[80vh] flex items-center bg-[#F5F5F1] py-16" id="hero-section">
-        <div class="max-w-container-max mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" id="hero-grid">
-          <div class="relative z-10">
-            <span class="inline-block px-4 py-1 bg-action-cyan/10 text-action-cyan font-label-lg text-label-sm rounded-full mb-6">
+    <main class="pt-16">
+      <section class="relative w-full min-h-[75vh] flex items-center bg-[#F5F5F1] py-8 md:py-16" id="hero-section">
+        <div class="w-full max-w-7xl mx-auto px-4 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center" id="hero-grid">
+          <div class="relative z-10 text-center lg:text-left">
+            <span class="inline-block px-4 py-1 bg-action-cyan/10 text-action-cyan text-xs font-bold rounded-full mb-4">
               EXCELENCIA EN ASESORÍA TRIBUTARIA Y LEGAL
             </span>
-            <h1 class="font-display-lg text-display-lg text-primary mb-6 leading-tight">
+            <h1 class="text-3xl md:text-5xl font-bold text-primary mb-4 leading-tight">
               Potenciamos su <span class="text-action-cyan">Crecimiento</span> Empresarial
             </h1>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 leading-relaxed max-w-lg">
+            <p class="text-base md:text-lg text-on-surface-variant mb-6 leading-relaxed max-w-lg mx-auto lg:mx-0">
               NEXO TRIBUTARIO le ofrece la tranquilidad fiscal que su empresa merece, con más de dos décadas de trayectoria impecable.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4">
-              <button class="px-8 py-4 bg-primary text-white font-label-lg text-label-lg rounded hover:bg-primary-container transition-all flex items-center justify-center gap-2">
-                Agendar Consulta <span class="material-symbols-outlined text-sm">north_east</span>
-              </button>
-              <button class="px-8 py-4 border border-outline text-primary font-label-lg text-label-lg rounded hover:bg-surface-container transition-all flex items-center justify-center gap-2">
-                Ver Portafolio <span class="material-symbols-outlined text-sm">north_east</span>
-              </button>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <button class="px-6 py-3 bg-primary text-white font-semibold rounded hover:bg-primary-container transition-all">Agendar Consulta</button>
+              <button class="px-6 py-3 border border-on-surface-variant/30 text-primary font-semibold rounded hover:bg-black/5 transition-all">Ver Portafolio</button>
             </div>
           </div>
-          <div class="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl" id="hero-img-container">
+          <div class="relative h-[250px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg" id="hero-img-container">
             <img alt="Sala de reuniones profesional" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80">
           </div>
         </div>
       </section>
 
-      <!-- Sección Servicios -->
-      <section class="py-24 bg-[#F5F5F1] relative z-20 shadow-sm" id="servicios">
-        <div class="max-w-container-max mx-auto px-6">
-          <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-16 gap-8" id="servicios-header">
-            <div class="max-w-xl">
-              <h2 class="font-display-lg text-display-lg text-primary mb-4">Soluciones Integrales para <span class="text-action-cyan">Desafíos Complejos</span></h2>
-            </div>
-            <div class="max-w-sm">
-              <p class="font-body-md text-on-surface-variant">Cubrimos todo el espectro regulatorio para asegurar el cumplimiento total de su organización ante los entes de control.</p>
-            </div>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="servicios-grid">
-            <div class="bg-surface-container-lowest p-8 rounded-xl border border-border-subtle shadow-sm">
-              <div class="bg-action-cyan rounded-lg flex items-center justify-center mb-6 text-white w-10 h-10">
-                <span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
+      <section class="py-16 bg-[#F5F5F1]" id="servicios">
+        <div class="max-w-7xl mx-auto px-4 md:px-12">
+          <h2 class="text-2xl md:text-4xl font-bold text-primary mb-8 text-center lg:text-left">Soluciones Integrales para <span class="text-action-cyan">Desafíos Complejos</span></h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="servicios-grid">
+            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm">
+              <div class="bg-action-cyan rounded-lg flex items-center justify-center mb-4 text-white w-10 h-10">
+                <span class="material-symbols-outlined">account_balance_wallet</span>
               </div>
-              <h3 class="font-headline-md text-headline-md text-primary mb-4">Recuperación de Impuestos</h3>
-              <p class="font-body-sm text-on-surface-variant leading-relaxed">
-                Expertos líderes en Devolución de IVA, Impuesto a la Renta, beneficios para Exportadores y convenios de Doble Imposición (CDI). Recuperamos su capital con máxima eficiencia legal.
-              </p>
+              <h3 class="text-lg font-bold text-primary mb-2">Recuperación de Impuestos</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">Expertos líderes en Devolución de IVA, Impuesto a la Renta, beneficios para Exportadores y convenios de Doble Imposición (CDI).</p>
             </div>
-            <div class="bg-surface-container-lowest p-8 rounded-xl border border-border-subtle shadow-sm">
-              <div class="bg-white border border-border-subtle rounded-lg flex items-center justify-center mb-6 text-action-cyan w-10 h-10">
-                <span class="material-symbols-outlined text-2xl">fact_check</span>
+            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm">
+              <div class="bg-action-cyan/10 rounded-lg flex items-center justify-center mb-4 text-action-cyan w-10 h-10">
+                <span class="material-symbols-outlined">fact_check</span>
               </div>
-              <h3 class="font-headline-md text-headline-md text-primary mb-4">Auditoría Externa</h3>
-              <p class="font-body-sm text-on-surface-variant leading-relaxed">
-                Examen exhaustivo de estados financieros para brindar transparencia a sus socios y cumplimiento ante los entes de control.
-              </p>
+              <h3 class="text-lg font-bold text-primary mb-2">Auditoría Externa</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">Examen exhaustivo de estados financieros para brindar transparencia a sus socios y entes de control.</p>
             </div>
-            <div class="bg-surface-container-lowest p-8 rounded-xl border border-border-subtle shadow-sm">
-              <div class="bg-white border border-border-subtle rounded-lg flex items-center justify-center mb-6 text-action-cyan w-10 h-10">
-                <span class="material-symbols-outlined text-2xl">gavel</span>
+            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm">
+              <div class="bg-action-cyan/10 rounded-lg flex items-center justify-center mb-4 text-action-cyan w-10 h-10">
+                <span class="material-symbols-outlined">gavel</span>
               </div>
-              <h3 class="font-headline-md text-headline-md text-primary mb-4">Defensa Legal</h3>
-              <p class="font-body-sm text-on-surface-variant leading-relaxed">
-                Patrocinio jurídico especializado para litigios administrativos y constitucionales ante el SRI, IESS y ministerios.
-              </p>
+              <h3 class="text-lg font-bold text-primary mb-2">Defensa Legal</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">Patrocinio jurídico especializado para litigios administrativos ante el SRI, IESS y ministerios.</p>
             </div>
-            <div class="bg-surface-container-lowest p-8 rounded-xl border border-border-subtle shadow-sm">
-              <div class="bg-white border border-border-subtle rounded-lg flex items-center justify-center mb-6 text-action-cyan w-10 h-10">
-                <span class="material-symbols-outlined text-2xl">hub</span>
+            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm">
+              <div class="bg-action-cyan/10 rounded-lg flex items-center justify-center mb-4 text-action-cyan w-10 h-10">
+                <span class="material-symbols-outlined">hub</span>
               </div>
-              <h3 class="font-headline-md text-headline-md text-primary mb-4">Outsourcing Contable</h3>
-              <p class="font-body-sm text-on-surface-variant leading-relaxed">
-                Manejo integral de libros contables y nómina bajo normas NIIF, asegurando una operatividad impecable.
-              </p>
+              <h3 class="text-lg font-bold text-primary mb-2">Outsourcing Contable</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">Manejo integral de libros contables y nómina bajo normas NIIF, asegurando operatividad impecable.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Sección Nosotros -->
-      <section class="py-24 bg-[#F5F5F1]" id="nosotros">
-        <div class="max-w-container-max mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center" id="nosotros-grid">
-          <div class="relative" id="nosotros-img-container">
-            <img alt="Equipo profesional trabajando" class="w-full object-cover rounded-2xl shadow-xl h-[400px]" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80">
+      <section class="py-16 bg-[#F5F5F1]" id="nosotros">
+        <div class="max-w-7xl mx-auto px-4 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" id="nosotros-grid">
+          <div class="relative h-[280px] md:h-[350px]" id="nosotros-img-container">
+            <img alt="Equipo profesional trabajando" class="w-full h-full object-cover rounded-2xl shadow-md" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80">
           </div>
           <div>
-            <span class="text-action-cyan font-label-lg uppercase tracking-wider mb-4 block">NUESTRA ESENCIA</span>
-            <h2 class="font-display-lg text-display-lg text-primary mb-8">Evolución y <span class="text-action-cyan italic">Compromiso</span> Inquebrantable</h2>
-            <div class="space-y-6 text-body-md text-on-surface-variant">
-              <p>Desde el año <strong>2005</strong>, iniciamos nuestra trayectoria como <em>Cortez & Asociados</em>. Hoy, nos hemos consolidado como una firma líder en servicios contables y tributarios en Ecuador, impulsando la tranquilidad de nuestros clientes.</p>
-              <p>Contamos con un <strong>staff de profesionales de tercer nivel</strong> y de mucha experiencia, con capacidad formativa para adaptarnos a las necesidades de cada cliente de manera integral.</p>
-              <p>Nuestra experiencia nos permite atender a personas naturales y jurídicas en todo el Ecuador, adaptándonos a categorías del SRI como <strong>RIMPE, Emprendedores, Régimen General y PYMES</strong>, garantizando un servicio confiable que impulse su crecimiento.</p>
-            </div>
-            <div class="grid grid-cols-2 gap-8 mt-12 pt-12 border-t border-border-subtle">
+            <span class="text-action-cyan text-sm font-bold tracking-wider mb-2 block">NUESTRA ESENCIA</span>
+            <h2 class="text-2xl md:text-4xl font-bold text-primary mb-4">Evolución y Compromiso</h2>
+            <p class="text-sm md:text-base text-on-surface-variant mb-4">Desde el año <strong>2005</strong>, iniciamos como <em>Cortez & Asociados</em>. Hoy somos NEXO TRIBUTARIO, una firma líder adaptada a categorías del SRI como <strong>RIMPE, Régimen General y PYMES</strong>.</p>
+            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-border-subtle">
               <div>
-                <div class="text-4xl font-bold text-primary mb-2">25+</div>
-                <div class="text-on-surface-variant font-label-lg uppercase text-xs tracking-widest">Años de confianza</div>
+                <div class="text-3xl font-bold text-primary">25+</div>
+                <div class="text-xs text-on-surface-variant uppercase font-semibold">Años de confianza</div>
               </div>
               <div>
-                <div class="text-4xl font-bold text-action-cyan mb-2">100%</div>
-                <div class="text-on-surface-variant font-label-lg uppercase text-xs tracking-widest">Rigor técnico</div>
+                <div class="text-3xl font-bold text-action-cyan">100%</div>
+                <div class="text-xs text-on-surface-variant uppercase font-semibold">Rigor técnico</div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Clientes -->
-      <section class="py-24 bg-[#F5F5F1] relative z-30" id="nuestros-clientes">
-        <div class="max-w-container-max mx-auto px-6 text-center">
-          <h2 class="font-display-lg text-display-lg text-primary mb-16">Nuestros <span class="text-action-cyan">Clientes</span></h2>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-12" id="clientes-grid">
-            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm flex flex-col items-center justify-between">
-              <div class="h-24 flex items-center justify-center w-full"><img alt="SISTELESA SA" class="max-h-full max-w-full object-contain" src="sistelesa.jpg"></div>
-              <p class="mt-4 font-bold text-sm text-primary">SISTELESA SA</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm flex flex-col items-center justify-between">
-              <div class="h-24 flex items-center justify-center w-full"><img alt="ENERGAU SA" class="max-h-full max-w-full object-contain" src="energau.jpg"></div>
-              <p class="mt-4 font-bold text-sm text-primary">ENERGAU SA</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm flex flex-col items-center justify-between">
-              <div class="h-24 flex items-center justify-center w-full"><img alt="SACHOF SA Logística" class="max-h-full max-w-full object-contain" src="sachof.jpg"></div>
-              <p class="mt-4 font-bold text-sm text-primary">SACHOF SA Logística</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl border border-border-subtle shadow-sm flex flex-col items-center justify-between">
-              <div class="h-24 flex items-center justify-center w-full"><img alt="Equipos Tecnológicos" class="max-h-full max-w-full object-contain" src="tecnobuy.jpg"></div>
-              <p class="mt-4 font-bold text-sm text-primary">Equipos Tecnológicos</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contacto -->
-      <section class="py-24 bg-[#F5F5F1]" id="contacto">
-        <div class="max-w-container-max mx-auto px-6">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start" id="contacto-grid">
-            <div>
-              <h2 class="font-display-lg text-display-lg text-primary mb-8 leading-tight">Construyamos su <span class="text-action-cyan">Legado Fiscal</span></h2>
-              <form action="https://formspree.io/f/xvzjvbyg" class="space-y-6" method="POST">
-                <input class="w-full p-4 rounded-lg border bg-white" name="nombre" placeholder="Nombre completo" required type="text">
-                <input class="w-full p-4 rounded-lg border bg-white" name="email" placeholder="Correo electrónico" required type="email">
-                <button class="w-full py-4 bg-success-emerald text-white font-bold rounded-lg shadow-lg" type="submit">Enviar Consulta</button>
-              </form>
             </div>
           </div>
         </div>
@@ -306,7 +162,6 @@
     </main>
   </div>
 
-  <!-- CONTROL DE SIMULACIÓN POR FUERZA BRUTA DE INYECCIÓN CSS -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const btnDesktop = document.getElementById('btn-desktop');
@@ -315,86 +170,80 @@
       const simuladorStyles = document.getElementById('simulador-styles');
       const mobileMenuButton = document.getElementById('mobile-menu-button');
       const mobileMenu = document.getElementById('mobile-menu');
+      const barraSimulador = document.getElementById('barra-simulador');
 
-      function activarModoEscritorio() {
-        btnDesktop.className = "px-6 py-1.5 rounded-full text-label-lg font-label-lg bg-action-cyan text-primary-container transition-all";
-        btnMobile.className = "px-6 py-1.5 rounded-full text-label-lg font-label-lg text-white/70 hover:bg-white/20 hover:text-white transition-all active:scale-95";
-        
-        pageWrapper.className = "w-full min-h-screen mx-auto transition-all duration-300 bg-[#F5F5F1] text-on-background relative pt-[52px]";
-        
-        // Limpiar estilos forzados
-        simuladorStyles.innerHTML = `
-          #mobile-menu-button { display: none !important; }
-          #desktop-nav { display: flex !important; }
-        `;
-        mobileMenu.classList.add('hidden');
+      // 1. Detección Inteligente del Entorno
+      function esDispositivoMovilReal() {
+        return window.innerWidth < 1024 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
       }
 
-      function activarModoMovil() {
-        btnMobile.className = "px-6 py-1.5 rounded-full text-label-lg font-label-lg bg-action-cyan text-primary-container transition-all";
-        btnDesktop.className = "px-6 py-1.5 rounded-full text-label-lg font-label-lg text-white/70 hover:bg-white/20 hover:text-white transition-all active:scale-95";
-        
-        pageWrapper.className = "max-w-[375px] w-full min-h-screen mx-auto transition-all duration-300 bg-[#F5F5F1] text-on-background relative pt-[52px] shadow-2xl border-x border-white/10";
-        
-        // Calcular el offset para centrar el encabezado en la pantalla
-        const leftOffset = (window.innerWidth - 375) / 2;
-
-        // Inyección masiva de CSS para obligar a los elementos a actuar como Móvil
-        simuladorStyles.innerHTML = `
-          #main-header { 
-            width: 375px !important; 
-            left: ${leftOffset}px !important; 
+      function aplicarEstructura() {
+        // Si es un celular real, fuerza el comportamiento limpio móvil sin simulaciones arriba
+        if (esDispositivoMovilReal()) {
+          barraSimulador.style.setProperty('display', 'none', 'important');
+          pageWrapper.style.paddingTop = '0px';
+          
+          simuladorStyles.innerHTML = `
+            #mobile-menu-button { display: block !important; }
+            #desktop-nav { display: none !important; }
+            #hero-grid, #servicios-grid, #nosotros-grid { grid-template-cols: 1fr !important; }
+            #main-header, #mobile-menu { width: 100% !important; left: 0 !important; }
+            #mobile-menu { top: 64px !important; }
+          `;
+        } else {
+          // Si está en PC, evalúa el botón que esté activo en el simulador
+          if (pageWrapper.classList.contains('max-w-[375px]')) {
+            const leftOffset = (window.innerWidth - 375) / 2;
+            simuladorStyles.innerHTML = `
+              #mobile-menu-button { display: block !important; }
+              #desktop-nav { display: none !important; }
+              #hero-grid, #servicios-grid, #nosotros-grid { grid-template-cols: 1fr !important; }
+              #main-header, #mobile-menu { width: 375px !important; left: ${leftOffset}px !important; }
+              #mobile-menu { top: 116px !important; }
+            `;
+          } else {
+            // Modo Escritorio Puro en PC
+            simuladorStyles.innerHTML = `
+              #mobile-menu-button { display: none !important; }
+              #desktop-nav { display: flex !important; }
+              #main-header { width: 100% !important; left: 0 !important; }
+            `;
+            mobileMenu.classList.add('hidden');
           }
-          #mobile-menu { 
-            width: 375px !important; 
-            left: ${leftOffset}px !important; 
-          }
-          #mobile-menu-button { 
-            display: block !important; 
-          }
-          #desktop-nav { 
-            display: none !important; 
-          }
-          /* Forzar grillas a comportarse como móvil (1 sola columna) */
-          #hero-grid, #servicios-grid, #nosotros-grid, #clientes-grid, #contacto-grid {
-            grid-template-cols: repeat(1, minmax(0, 1fr)) !important;
-          }
-          #servicios-header {
-            flex-direction: column !important;
-            align-items: flex-start !important;
-          }
-          #hero-img-container {
-            height: 250px !important;
-          }
-        `;
+        }
       }
 
-      // Escuchas de los botones superiores de control
-      btnDesktop.addEventListener('click', activarModoEscritorio);
-      btnMobile.addEventListener('click', activarModoMovil);
+      // 2. Interacciones del Simulador en Computadora
+      btnDesktop.addEventListener('click', () => {
+        btnDesktop.className = "px-6 py-1.5 rounded-full text-sm font-semibold bg-action-cyan text-primary-container transition-all";
+        btnMobile.className = "px-6 py-1.5 rounded-full text-sm font-semibold text-white/70 hover:bg-white/20 hover:text-white transition-all";
+        pageWrapper.className = "w-full min-h-screen mx-auto bg-[#F5F5F1] relative pt-[52px] transition-all duration-300";
+        aplicarEstructura();
+      });
 
-      // Evento nativo del botón hamburguesa
+      btnMobile.addEventListener('click', () => {
+        btnMobile.className = "px-6 py-1.5 rounded-full text-sm font-semibold bg-action-cyan text-primary-container transition-all";
+        btnDesktop.className = "px-6 py-1.5 rounded-full text-sm font-semibold text-white/70 hover:bg-white/20 hover:text-white transition-all";
+        pageWrapper.className = "max-w-[375px] w-full min-h-screen mx-auto bg-[#F5F5F1] relative pt-[52px] shadow-2xl border-x border-white/10 transition-all duration-300";
+        aplicarEstructura();
+      });
+
+      // 3. Evento del botón Hamburguesa (Tanto en celular real como simulado)
       mobileMenuButton.addEventListener('click', (e) => {
+        e.preventDefault();
         e.stopPropagation();
         mobileMenu.classList.toggle('hidden');
       });
 
-      // Cerrar al clickear opciones
+      // Cerrar menú al dar click a una opción
       mobileMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           mobileMenu.classList.add('hidden');
         });
       });
 
-      // Recalcular posiciones si redimensionas el navegador web
-      window.addEventListener('resize', () => {
-        if (pageWrapper.classList.contains('max-w-[375px]')) {
-          activarModoMovil();
-        }
-      });
-
-      // Inicializar por defecto en vista de escritorio
-      activarModoEscritorio();
+      window.addEventListener('resize', aplicarEstructura);
+      aplicarEstructura();
     });
   </script>
 </body>
